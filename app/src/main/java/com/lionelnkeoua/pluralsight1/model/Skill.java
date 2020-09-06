@@ -17,7 +17,7 @@ public class Skill {
     @Expose
     private String country;
 
-    @SerializedName("imageUrl")
+    @SerializedName("badgeUrl")
     @Expose
     private String imageUrl;
 
