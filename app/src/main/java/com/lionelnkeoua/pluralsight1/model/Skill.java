@@ -1,10 +1,24 @@
 package com.lionelnkeoua.pluralsight1.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Skill {
 
+    @SerializedName("name")
+    @Expose
     private String name;
+
+    @SerializedName("score")
+    @Expose
     private String skill;
+
+    @SerializedName("country")
+    @Expose
     private String country;
+
+    @SerializedName("imageUrl")
+    @Expose
     private String imageUrl;
 
     public Skill(String name, String skill, String country, String imageUrl) {
