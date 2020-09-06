@@ -25,19 +25,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class HourRecyclerAdapter extends RecyclerView.Adapter<HourRecyclerAdapter.ViewHolder> {
 
     Context mCtx;
     List<Hour> hourList;
 
-    public RecyclerAdapter(Context mCtx, List<Hour> hourList) {
+    public HourRecyclerAdapter(Context mCtx, List<Hour> hourList) {
         this.mCtx = mCtx;
         this.hourList = hourList;
     }
 
     @NonNull
     @Override
-    public RecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HourRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mCtx).inflate(R.layout.item, parent, false);
 
         ViewHolder viewHolder =  new ViewHolder(view);
@@ -45,7 +45,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HourRecyclerAdapter.ViewHolder holder, int position) {
         Hour hour = hourList.get(position);
 
         Glide.with(mCtx)
@@ -66,7 +66,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 .into(holder.imageView);
 
         holder.mName.setText(hour.getName());
-        holder.mHour.setText(hour.getHour());
+        holder.mHour.setText(hour.getHour() + " learning hours, ");
         holder.mCountry.setText(hour.getCountry());
 
     }
@@ -84,7 +84,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         @BindView(R.id.mNom)
         TextView mName;
 
-        @BindView(R.id.mHour)
+        @BindView(R.id.mVariable)
         TextView mHour;
 
         @BindView(R.id.mCountry)
