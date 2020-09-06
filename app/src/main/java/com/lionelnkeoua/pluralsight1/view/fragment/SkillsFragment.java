@@ -7,51 +7,59 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lionelnkeoua.pluralsight1.R;
+import com.lionelnkeoua.pluralsight1.adapters.HourRecyclerAdapter;
+import com.lionelnkeoua.pluralsight1.adapters.SkillsRecyclerAdapter;
+import com.lionelnkeoua.pluralsight1.model.Hour;
+import com.lionelnkeoua.pluralsight1.model.Skill;
+import com.lionelnkeoua.pluralsight1.viewmodel.HoursViewModel;
 import com.lionelnkeoua.pluralsight1.viewmodel.SkillsViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class SkillsFragment extends Fragment {
 
-    private static final String ARG_SECTION_NUMBER = "section_number";
+    private SkillsViewModel mSkillsViewModel;
 
-    private SkillsViewModel skillsViewModel;
 
-    public static SkillsFragment newInstance(int index) {
-        SkillsFragment fragment = new SkillsFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt(ARG_SECTION_NUMBER, index);
-        fragment.setArguments(bundle);
-        return fragment;
-    }
+    RecyclerView mRecyclerView;
+    private View view;
+    private List<Skill> skillList = new ArrayList<>();
+    private SkillsRecyclerAdapter skillsRecyclerAdapter;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        skillsViewModel = ViewModelProviders.of(this).get(SkillsViewModel.class);
-        int index = 1;
-        if (getArguments() != null) {
-            index = getArguments().getInt(ARG_SECTION_NUMBER);
-        }
-        skillsViewModel.setIndex(index);
-    }
 
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_skills, container, false);
-        final TextView textView = root.findViewById(R.id.section_label);
-        skillsViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+        view = inflater.inflate(R.layout.fragment_skills, container, false);
+        mRecyclerView = view.findViewById(R.id.skill_recycler);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        loadSkills();
+        return view;
+    }
+
+    public void loadSkills() {
+
+        mSkillsViewModel = ViewModelProviders.of(this).get(SkillsViewModel.class);
+        // TODO: Use the ViewModel
+        mSkillsViewModel.getSkills().observe(this, new Observer<List<Skill>>() {
+           @Override
+           public void onChanged(List<Skill> skills) {
+               skillsRecyclerAdapter = new SkillsRecyclerAdapter(getContext(), skills);
+               mRecyclerView.setAdapter(skillsRecyclerAdapter);
+           }
+       });
     }
 }
