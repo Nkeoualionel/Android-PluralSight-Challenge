@@ -8,6 +8,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+import com.lionelnkeoua.pluralsight1.R;
 
 import android.view.View;
 
