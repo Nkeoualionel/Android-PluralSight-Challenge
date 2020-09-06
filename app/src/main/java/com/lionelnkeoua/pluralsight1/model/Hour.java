@@ -1,10 +1,24 @@
 package com.lionelnkeoua.pluralsight1.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Hour {
 
+    @SerializedName("name")
+    @Expose
     private String name;
+
+    @SerializedName("hours")
+    @Expose
     private String hour;
+
+    @SerializedName("country")
+    @Expose
     private String country;
+
+    @SerializedName("badgeUrl")
+    @Expose
     private String imageUrl;
 
     public Hour(String name, String hour, String country, String imageUrl) {
