@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Pluralsight</string>
+    <string name="leadboard">LEADBOARD</string>
+    <string name="submit">Submit</string>
     <string name="title_activity_home">Pluralsight</string>
     <string name="tab_text_1">Learning Leaders</string>
     <string name="tab_text_2">Skill IQ Leaders</string>
