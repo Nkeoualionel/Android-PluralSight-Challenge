@@ -10,13 +10,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.lionelnkeoua.pluralsight1.R;
-import com.lionelnkeoua.pluralsight1.adapters.RecyclerAdapter;
+import com.lionelnkeoua.pluralsight1.adapters.HourRecyclerAdapter;
 import com.lionelnkeoua.pluralsight1.model.Hour;
 import com.lionelnkeoua.pluralsight1.viewmodel.HoursViewModel;
 
@@ -26,10 +28,12 @@ import java.util.List;
 public class HoursFragment extends Fragment {
 
     private HoursViewModel mViewModel;
-    private RecyclerView mRecyclerView;
+
+    @BindView(R.id.hour_recycler)
+    RecyclerView mRecyclerView;
     private View view;
     private List<Hour> hourList = new ArrayList<>();
-    private RecyclerAdapter recyclerAdapter;
+    private HourRecyclerAdapter hourRecyclerAdapter;
 
     public static HoursFragment newInstance() {
         return new HoursFragment();
@@ -55,8 +59,8 @@ public class HoursFragment extends Fragment {
         mViewModel.getHours().observe(this, new Observer<List<Hour>>() {
             @Override
             public void onChanged(List<Hour> hours) {
-                recyclerAdapter = new RecyclerAdapter(getContext(), hours);
-                mRecyclerView.setAdapter(recyclerAdapter);
+                hourRecyclerAdapter = new HourRecyclerAdapter(getContext(), hours);
+                mRecyclerView.setAdapter(hourRecyclerAdapter);
             }
         });
     }
