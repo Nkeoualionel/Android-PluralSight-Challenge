@@ -21,8 +21,6 @@ import com.lionelnkeoua.pluralsight1.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    @BindView(R.id.mImg)
-    ImageView mImageView;
 
     private static int time = 6000;
 

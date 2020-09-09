@@ -6,9 +6,17 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="nom_text_size">18sp</dimen>
+    <dimen name="height_text_input">45dp</dimen>
+    <dimen name="margin_left_button">135dp</dimen>
+    <dimen name="width_input">165dp</dimen>
+    <dimen name="width_include">275dp</dimen>
+    <dimen name="height_include">155dp</dimen>
     <dimen name="submit_text_size">15sp</dimen>
     <dimen name="marging_left">5dp</dimen>
     <dimen name="marging_top_main">10dp</dimen>
+    <dimen name="marging_right_input">5dp</dimen>
+    <dimen name="marging_top_input">50dp</dimen>
+    <dimen name="marging_top_submit">60dp</dimen>
     <dimen name="cardview_radius">7dp</dimen>
     <dimen name="cardview_elevation">7dp</dimen>
     <dimen name="cardview_max_elevation">7dp</dimen>
