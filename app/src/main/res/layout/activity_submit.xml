@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.SubmitActivity">
 
-<LinearLayout
+<!--<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -21,39 +21,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            android:scaleType="centerCrop"/>
-
 
         <include
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marging_top_main"
             android:layout_marginLeft="@dimen/marging_top_main"
-            android:layout_toRightOf="@id/back_button"
             layout="@layout/include_toolbar"/>
 
         </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-</LinearLayout>
+</LinearLayout>-->
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="@dimen/marging_top_submit"
+        android:layout_margin="@dimen/margin_form"
         android:layout_gravity="center">
 
             <RelativeLayout
                 android:id="@+id/mFirstNameContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marging_top_submit"
                 android:layout_marginRight="@dimen/appbar_padding">
 
                 <EditText
@@ -96,14 +89,12 @@
 
         <Button
             android:id="@+id/mSubmit"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/width_button"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_submit"
             android:layout_marginTop="@dimen/marging_top_input"
             android:layout_marginLeft="@dimen/margin_left_button"
             android:text="@string/submit"
-            android:paddingLeft="@dimen/nom_text_size"
-            android:paddingRight="@dimen/nom_text_size"
             android:textColor="@color/colorAccent"/>
 
     </LinearLayout>
